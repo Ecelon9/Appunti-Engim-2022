@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+                                <!-- Evidenziamo alcuni tag -->
+
+<h1></h1>                   <!-- "h" sta per "header"  -->
+<h2></h2>           <!-- e vengono usati per definire titoli e sottotitoli -->
+<h3></h3>               <!-- hanno delle dimensioni pre-impostate -->
+<p></p>                 <!-- paragraph, si usa per i testi -->
+<b></b>             <!-- bolder, creerà un testo in grassetto -->  
+<!-- è buona norma inserire un tag b dentro un tag p. Potrebbero nascere problemi di rendering della pagina -->
+<a href=""></a>         <!-- anchor, permette di inserire un link -->
+<img src="" alt=""> <!-- image, permette di inserire il percorso di una immagine -->
+<!-- non ha un tag di chiusura e può essere percorso file, oppure anche link -->
+<!-- "alt" (alternative) permette di inserire un nome che viene visualizzato qualora -->
+                <!-- la pagina non riuscisse a caricare l'immagine effettiva -->
+
+<ul>            <!-- unordered list, tag di apertura di una lista -->
+    <li></li>
+</ul>
+<ol>                            <!-- ordered list-->
+    <li></li>
+</ol>
+
+<section id="univoco">  <!-- Abbiamo dato un id alla sezione che contiene il resto dell'indentazione -->
+    <header>                <!-- per essere sicuri che questo blocco abbia un nome unico -->
+        <div class="titolo">    <!-- al suo interno troviamo un div che contiene il titolo -->
+            <h1>TITOLO</h1>
+        </div>
+        <div class="sottotitolo"> <!-- un altro div che contiene un sottotitolo -->
+            <h2>Sottotitolo</h2>
+        </div>
+        <div class="testo">         <!-- e la porzione di testo -->
+            <h3>...Testo...</h3>
+        </div>  <!-- in questo modo, tramite CSS possiamo accedere a ogni singolo oggetto -->
+    </header>           <!-- e modificarli singolarmente in maniere differenti -->
+</section>              <!-- oppure tutti allo stesso modo richiamando l'id -->
+
+
+</body>
+</html>

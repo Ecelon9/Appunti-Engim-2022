@@ -1,0 +1,70 @@
+					APPUNTI
+					
+Ingegneria della programmazione: Flavio
+Linguaggi web client side: Massimo
+HTML: Sergio
+Base di dati: Simone
+					
+per accedere a moodle: "formazione.engim.org"
+	
+					
+	∀ -> simbolo "ogni"; (unicode 2203)
+					
+					
+Un programma è un metodo per rispondere ad un'esigenza attraverso dei comandi.
+
+
+Ci sono quattro concetti principali da ricordare:
+
+-Cosa deve fare il programma;
+-Quali strumenti abbiamo a disposizione;
+-Quali input abbiamo;
+-Quali output dobbiamo restituire;
+
+E due metodologie per pianificare un programma:
+
+-Top down: 
+-Bottom up:
+
+Con il metodo top down, partiamo a creare l'algoritmo dal concetto generale, macroscopico,
+senza preoccuparci dei dettagli o dei dati specifici. Bottom up è il contrario.
+
+il browser è un'applicazione che fornisce un servizio. Quello ricevere dati da un server 
+e proiettarli a schermo.
+
+
+JavaScript: linguaggio di programmazione lato client, che viene eseguito all'interno del browser.
+-HTML: protocollo/serie di regole per siti web per formattare le pagine web.
+-CSS: stile grafico della pagina.
+
+
+
+Quando creiamo una pagina web con html, possiamo definire le sezioni della pagina
+utilizzando degli ID e delle classi.
+Gli ID sono/devono essere univoci, mentre le classi possono essere ripetute nella pagina.
+
+Per selezionare un ID, si usa #, per le classi il punto, prima dei nomi.
+Le classi possono avere più oggetti all'interno, per esempio:
+	class="testo"
+	class="testo blue"
+	class="testo blue corsivo"
+	
+in questo modo, ogni classe prenderà in input un attributo in più.
+
+
+
+RDBMS: Relational Database Management System
+	Un database relazionale definisce le relazioni dei dati al suo interno attraverso delle tabelle
+	e sono correlate fra loro tramite dei dati comuni
+
+GIT:	repository: spazione dedicato per le versioni degli script
+	pwd: mostra la home
+	ls: indica cosa si trova all'interno di quella quella cartella
+	cd nomeCartella: permette di aprire un'altra cartella 
+	- aggiungendo ".." torniamo indietro di una cartella
+	- scrivendo solo "cd", torna alla home
+	
+		
+	
+
+

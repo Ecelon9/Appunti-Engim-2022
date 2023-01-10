@@ -1,0 +1,39 @@
+					VOCABOLARIO
+		
+Lunguaggio Imperativo
+Linguaggio orentato agli oggetti
+Script 			-> insieme di istruzioni.
+Interfaccia
+Varaibile 			-> porzione di memoria dedicata per le informazioni / valori.
+Valore / Parametro
+Procedura / ciclo
+Iterazione / iteratore.
+Funzione
+Diagramma di flusso		-> strumento per descrivere il proprio ragionamento.
+Input
+Output
+Statement / Assegnazione 	-> dichiarazione del valore di una variabile.
+Tipo 				-> valore che la variabile può assumere.
+Tipo: num(intero, reale)
+Tipo: char("a", "b", "c", "1", "%")
+Tipo: string("abc1%") insieme di char
+Tipo: Array			-> insieme di elementi della stessa natura, ordinati, 
+				accessibili secondo un indice.
+Funzione
+modulo				-> dati due numeri, “A (mod N)” è il resto della divisione A/N.
+Scope della funzione		-> ambito di validità della funzione all'interno del programma
+
+Passaggio per valore 		-> quando chiamo una funzione, gli passo il valore in input, essa
+				crea un nuovo valore (può avere nome diverso) con lo stesso valore di input.
+Passaggio per referenza (ref)	->aggiungendo ref o # prima di un input, creerò un puntatore alla variabile
+				di origine - quindi qualora quel valore cambiasse, cambierebbe direttamente
+				la variabile di origine.
+				
+Cast (implicito/esplicito)	-> cambiare il tipo di un valore (da int a string, per esempio) 
+
+JSON(JavaScript Object Notation)-> formato di dato, di valore variabile, di coppie di chiave+valore.
+				ogni json può avere più coppie al suo interno {prima:"coppia", seconda:"coppia"}
+				e sono degli oggetti a tutti gli effeti, e possono essere aggiunti ad un array.
+				
+
+
