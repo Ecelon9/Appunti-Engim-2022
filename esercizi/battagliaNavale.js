@@ -36,6 +36,8 @@ let giocatore2 = {
     punti: 0
 };
 
+let tabella = [];
+
 let casella = {
     x: 0,
     y: 0,
@@ -43,15 +45,16 @@ let casella = {
     colpita: false
 };
 
-// Creare la tabella di gioco:
+let partitaAvviata = false
 
+// Creare la tabella di gioco:
 
 console.log("Per avviare la partita a Battaglia Navale, scrivi qui sotto: ");
 console.log("avviaPartita(e qui inserisci il numero di caselle che vuoi sul tabellone) ");
 
 function avviaPartita(numCaselle) {
 
-    let partitaAvviata = true
+    partitaAvviata = true;
 
     if (partitaAvviata == true) {
         console.log(giocatore1);
@@ -60,64 +63,84 @@ function avviaPartita(numCaselle) {
         //Genero la tabella di gioco
 
         let asseX = []
-        let tabella = []
 
         for (let y = 0; y < numCaselle; y++) {
             for (let x = 0; x < numCaselle; x++) {
                 asseX[x] = casella;
 
-            }
+            }   // Denominare tabella.x e .y con l'effettiva posizione all'interno dell'array x
             tabella[y] = asseX;
 
         }
-        console.log(tabella)
+        console.log("Piazza le navi! Una per volta, scrivi:")
+        console.log("naveIn( numero della posizione in X, numero della posizione in Y")
 
-        //Giocatore corrente?
+    }
+    console.log(tabella)
+    return tabella
+    
+}
 
-        function turno() {
+//while (partitaAvviata == true) {      Attivare dopo aver  inserito la condizione di vittoria
 
-            let giocatori = [giocatore1, giocatore2]
-            let giocatoreCorrente = false;
+    //Posizionare le navi
+        // Quante navi??
 
-            if (giocatori == 0) {
-                giocatoreCorrente = true
-                console.log("è il tuo turno!")
+    function naveIn(x, y) {
+
+        tabella.forEach(element => {
+            if (x == tabella.x && y == tabella.y) {
+                tabella.piena = true;
+
             } else {
-                console.log("Tocca all'avversario...")
+                console.log("Puoi piazzare la nave solo all'interno della tabella...")
             }
+        })
+    }
+
+    //Giocatore corrente?
+
+    function turno() {
+
+        let giocatori = [giocatore1, giocatore2]
+        let giocatoreCorrente = false;
+
+        if (giocatori == 0) {
+            giocatoreCorrente = true
+            console.log("è il tuo turno!")
+        } else {
+            console.log("Tocca all'avversario...")
         }
+    }
 
-        //funzione per sparare
+    //funzione per sparare
 
-        console.log("Inserisci le coordinate. Scrivi:");
-        console.log("sparo(numero per X , numero per Y)")
+    console.log("Inserisci le coordinate. Scrivi:");
+    console.log("sparo(numero per X , numero per Y)")
 
-        function sparo(x, y) {
+    function sparo(x, y) {
 
-            tabella.forEach(element => {
-                if (x == tabella.x && y == tabella.y) {
-                    if (tabella.piena == true) {
-                        console.log("Colpita! Hai fatto un punto!")
-                        tabella.colpita = true;
-                        giocatore1.colpiSparati++;
-                        giocatore1.punti++;
+        tabella.forEach(element => {
+            if (x == tabella.x && y == tabella.y) {
+                if (tabella.piena == true) {
+                    console.log("Colpita! Hai fatto un punto!")
+                    tabella.colpita = true;
+                    giocatore1.colpiSparati++;
+                    giocatore1.punti++;
 
-                    } else {
-                        if (tabella.colpita == true) {
-                            console.log("Ehi! Hai già sparato qui e non c'era niente se non l'acqua!")
-                            giocatore1.colpiSparati++;
-
-                        }
-                        console.log("Acqua!")
-                        tabella.colpita = true;
+                } else {
+                    if (tabella.colpita == true) {
+                        console.log("Ehi! Hai già sparato qui e non c'era niente se non l'acqua!")
                         giocatore1.colpiSparati++;
 
                     }
+                    console.log("Acqua!")
+                    tabella.colpita = true;
+                    giocatore1.colpiSparati++;
+
                 }
-            });
-        }
-    }
+            }
+        });
+    //}
 }
-
-
 
