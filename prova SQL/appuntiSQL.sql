@@ -12,6 +12,13 @@ CREATE TABLE prova
 );                          
 
 /*
+La chiave primaria è importante perchè impedisce che ci siano duplicati e definisce
+esattamente a quale dato mi sto riferendo. Sono obbligatorie.
+
+La foreign key(o chiave secondaria) serve per referenziare più dati fra di loro.
+*/
+
+/*
 A questo punto, inseriamo i dati:
 */
 
@@ -89,3 +96,17 @@ in una tabella, effettuerà l'aggiornamento a tutti gli elementi di quel valore.
 Stessa cosa per la on delete cascade - cancellerà tutti gli elementi con quel valore.
 */
 
+/*
+Non è obbligatorio specificare la dimensione di un oggetto, per esempio:
+  idStud int(5) <- idStud avrà 5 campi di tipo int, pre-allocati.
+Volendo possiamo lasciare int senza parentesi e sql userà un valore di default.
+In aggiunta, se mettssimo id UNSIGNED, impediamo che vengano inseriti valori con segni,
+quindi non sarà possibile aggiungere un valore negativo.
+*/
+
+/*
+Se specifichiamo che un campo non può essere null (NOT NULL), quando inseriamo
+i valori, non possiamo lasciare il campo vuoto, perchè sql si aspetterà un campo NON vuoto,
+quindi durante l'inserimento (rispettando la sequenza di valori), dovremo inserire NULL,
+nel valore che vogliamo inserire vuoto
+*/

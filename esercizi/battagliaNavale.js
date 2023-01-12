@@ -39,11 +39,13 @@ let giocatore2 = {
 let tabella = [];
 
 let casella = {
-    x: 0,
-    y: 0,
+    // x: 0,
+    // y: 0,
     piena: false,
     colpita: false
 };
+
+let naviDisponibili = 5;
 
 let partitaAvviata = false
 
@@ -68,12 +70,13 @@ function avviaPartita(numCaselle) {
             for (let x = 0; x < numCaselle; x++) {
                 asseX[x] = casella;
 
-            }   // Denominare tabella.x e .y con l'effettiva posizione all'interno dell'array x
+            }  
             tabella[y] = asseX;
 
         }
         console.log("Piazza le navi! Una per volta, scrivi:")
         console.log("naveIn( numero della posizione in X, numero della posizione in Y")
+        console.log("Hai da schierare: " + naviDisponibili + " navi.")
 
     }
     console.log(tabella)
@@ -88,14 +91,18 @@ function avviaPartita(numCaselle) {
 
     function naveIn(x, y) {
 
-        tabella.forEach(element => {
-            if (x == tabella.x && y == tabella.y) {
-                tabella.piena = true;
+        if (naviDisponibili != 0) {
+            tabella[x][y].piena = true;     // modifica tutti gli oggeti "casella"...
+            naviDisponibili--;
+            console.log("Nave schierata!");
+            console.log("Hai ancora: " + naviDisponibili + " da schierare.");
 
-            } else {
-                console.log("Puoi piazzare la nave solo all'interno della tabella...")
-            }
-        })
+        } else if (naviDisponibili < 1) {
+            console.log("Tutte le navi schierate! è ora di sparare.")
+
+        } else {
+            console.log("Non hai più navi da schierare!")
+        }
     }
 
     //Giocatore corrente?

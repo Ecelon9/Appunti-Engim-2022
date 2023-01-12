@@ -45,5 +45,51 @@ SET id = 100
 WHERE id = 1;    
 
 
+/*____________________________________________________________________*/
+
+CREATE TABLE paesi (
+  cap int unsigned primary key,
+  nome varchar(15) not null
+);
+
+INSERT INTO paesi(cap, nome)
+VALUES
+  (10019, "Torino"),
+  (10020, "Napoli"),
+  (10021, "Venezia");
+
+CREATE TABLE persone (
+  id int unsigned,
+  nome varchar(15) not null,
+  annoNascita date,
+  cap int unsigned,
+  primary key(id),
+  foreign key (cap) references paesi(cap) 
+    on update cascade on delete no action
+);
+
+INSERT INTO persone(id, nome, annoNascita, cap)
+VALUES
+  (1, "Sara", null, 10019),
+  (2, "Stefano", "1964-03-10", 10020),
+  (3, "Luca", "1999-03-15", 10021),
+  (4, "Viola", "1939-12-06", 10021);
+
+UPDATE paesi  
+SET nome = "Dubai"     
+WHERE nome = "Torino";   
+
+update paesi
+set cap = 10099
+where nome = "napoli";
+
+
+delete from persone
+where cap = 10099;
+
+DELETE from paesi
+where nome = "napoli";
+
+delete from paesi; /* questo comando svuota il contenuto preservando la tabella */
 
 
