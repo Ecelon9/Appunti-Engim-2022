@@ -22,6 +22,15 @@ ci sono informazioni inutili?
 come possiamo ipotizzare una struttura dati per memorizzare quello che ci serve?
 */
 
+
+/*
+creare un evento sul click del testo in basso allo splashscreen
+per aprire la console.
+https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
+*/
+document.getElementByClassName("apriConsole").addEventListener("click", ActionCh);
+
+
 // Creare i giocatori:
 
 let giocatore1 = {
@@ -51,24 +60,27 @@ function avviaPartita(numCaselle) {
 
     partitaAvviata = true;
 
+    tabella = new Array(numCaselle)
+
     if (partitaAvviata == true) {
         console.log(giocatore1);
         console.log(giocatore2);
 
         //Genero la tabella di gioco
 
-        let asseX = []
-        let piena = false;
-        let colpita = false;
-
         for (let y = 0; y < numCaselle; y++) {
+            tabella[y] = new Array(numCaselle);
+
             for (let x = 0; x < numCaselle; x++) {
-                asseX[x] = [piena, colpita];
+                let casella = {
+                    piena: false,
+                    colpita: false
+                };
 
+                tabella[y][x] = casella;
             }  
-            tabella[y] = asseX;
-
         }
+
         console.log("Piazza le navi! Una per volta, scrivi:")
         console.log("naveIn( numero della posizione in X, numero della posizione in Y")
         console.log("Hai da schierare: " + naviDisponibili + " navi.")
@@ -86,19 +98,24 @@ function avviaPartita(numCaselle) {
 
     function naveIn(x, y) {
 
-        if (naviDisponibili != 0) {
-            tabella[x][y][0] = true;     // modifica tutti gli oggeti "casella"...
-            naviDisponibili--;
-            console.log("Nave schierata!");
-            console.log("Hai ancora: " + naviDisponibili + " da schierare.");
+        // if (x == 0 || y == 0) {
+        //     console.log("Non puoi piazzare una nave nelle posizioni -0-")
+        //     console.log("Riprova")
 
-        } else if (naviDisponibili < 1) {
-            console.log("Tutte le navi schierate! è ora di sparare.")
-
-        } else {
-            console.log("Non hai più navi da schierare!")
+            if (naviDisponibili > 1) {
+                tabella[x-1][y-1].piena = true;     // modifica tutti gli oggeti "casella"...
+                naviDisponibili--;
+                console.log("Nave schierata!");
+                console.log("Hai ancora: " + naviDisponibili + " da schierare.");
+    
+            } else if (naviDisponibili < 1) {
+                console.log("Tutte le navi schierate! è ora di sparare.")
+    
+            } else {
+                console.log("Non hai più navi da schierare!")
+            }
         }
-    }
+    //}
 
     //Giocatore corrente?
 
