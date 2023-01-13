@@ -1,7 +1,7 @@
 body {
-    display: block;
     width: 1000px;
     height: 500px;
+    margin: 3% 24% 3% 24%;
 }
 
 section.bordo {
@@ -11,10 +11,11 @@ section.bordo {
     height: 100%;
     align-items: center;
     margin: auto;
-    background: #17186a94;
+    background-color: #17186a94;
     justify-content: space-around;
-    border-style: inset;
+    border-style: double;
     border-radius: 20px;
+    position: relative;
 }
 
 .titolo {
@@ -23,8 +24,21 @@ section.bordo {
     align-items: center;
     justify-content: space-around;
     width: 70%;
-    background-color: #0101969c;
+    background-color: #0101965c;
     border-radius: 50px;
+}
+
+.titolo p {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: darksalmon;
+}
+
+img {
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
 }
 
 .schermo {
@@ -36,6 +50,11 @@ section.bordo {
     flex-direction: row;
     align-items: center;
     border-style: groove;
+    font-size: 25px;
+}
+
+.schermo b {
+    margin-left: 20px;
 }
 
 section.wrapperTastiera {
@@ -75,6 +94,7 @@ section.wrapperTastiera {
 }
 
 .tastierinoNum button {
+    font-size: 20px;
     width: 60px;
     height: 30px;
     margin: 1%;
@@ -82,6 +102,7 @@ section.wrapperTastiera {
 }
 
 .operatori button {
+    font-size: 30px;
     width: 70px;
     height: 40px;
     margin: 1%;
