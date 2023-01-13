@@ -11,6 +11,11 @@ body {
     text-align: center;
     font-size: 20px;
     font-style: italic;
+    box-shadow: 0px 0px 15px white;
+}
+
+h1 {
+    text-shadow: 0px 0px 25px black;
 }
 
 .navbar nav ul {
@@ -46,6 +51,7 @@ section#main {
     align-items: center;
     border-style: groove;
     border-radius: 10px;
+    box-shadow: -3px -10px 10px white;
 }
 
 .latoSinitro {
@@ -91,6 +97,7 @@ img {
     height: 100%;
     width: 100%;
     border-radius: 50px;
+    box-shadow: 0px 0px 20px black;
 }
 
 section.testoSovraimpressione {

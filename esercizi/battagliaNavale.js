@@ -38,13 +38,6 @@ let giocatore2 = {
 
 let tabella = [];
 
-let casella = {
-    // x: 0,
-    // y: 0,
-    piena: false,
-    colpita: false
-};
-
 let naviDisponibili = 5;
 
 let partitaAvviata = false
@@ -65,10 +58,12 @@ function avviaPartita(numCaselle) {
         //Genero la tabella di gioco
 
         let asseX = []
+        let piena = false;
+        let colpita = false;
 
         for (let y = 0; y < numCaselle; y++) {
             for (let x = 0; x < numCaselle; x++) {
-                asseX[x] = casella;
+                asseX[x] = [piena, colpita];
 
             }  
             tabella[y] = asseX;
@@ -92,7 +87,7 @@ function avviaPartita(numCaselle) {
     function naveIn(x, y) {
 
         if (naviDisponibili != 0) {
-            tabella[x][y].piena = true;     // modifica tutti gli oggeti "casella"...
+            tabella[x][y][0] = true;     // modifica tutti gli oggeti "casella"...
             naviDisponibili--;
             console.log("Nave schierata!");
             console.log("Hai ancora: " + naviDisponibili + " da schierare.");
