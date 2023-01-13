@@ -122,13 +122,15 @@ section.testoSovraimpressione {
 
 .contenutoSuperiore:hover {
     background-color: black;
-    opacity: 80%;
+    width: 100%;
+    opacity: 85%;
     transition: 0.8s;
 }
 
 .contenutoInferiore:hover {
     background-color: black;
-    opacity: 80%;
+    width: 100%;
+    opacity: 85%;
     transition: 0.8s;
 }
 

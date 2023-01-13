@@ -1,0 +1,100 @@
+body {
+    display: block;
+    width: 1000px;
+    height: 500px;
+}
+
+section.bordo {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    margin: auto;
+    background: #17186a94;
+    justify-content: space-around;
+    border-style: inset;
+    border-radius: 20px;
+}
+
+.titolo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    background-color: #0101969c;
+    border-radius: 50px;
+}
+
+.schermo {
+    background: white;
+    width: 90%;
+    height: 10%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-style: groove;
+}
+
+section.wrapperTastiera {
+    width: 100%;
+    height: 45%;
+}
+
+.tasti {
+    display: grid;
+    grid-template-columns: 40% 30%;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    margin-top: 10%;
+    width: 100%;
+    height: 80%;
+    align-items: center;
+}
+
+.tastierinoNum {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.tastierinoNum button:last-child {
+    width: 100%;
+}
+
+.operatori {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.tastierinoNum button {
+    width: 60px;
+    height: 30px;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.operatori button {
+    width: 70px;
+    height: 40px;
+    margin: 1%;
+    border-radius: 5px;
+}
+
+.operatori button:last-child {
+    width: 100%;
+}
+
+section.bordoInf {
+    width: 90%;
+    height: 10%;
+    background: #00005a;
+    border-radius: 50px;
+}
