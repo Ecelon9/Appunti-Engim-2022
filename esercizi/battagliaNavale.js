@@ -28,7 +28,7 @@ creare un evento sul click del testo in basso allo splashscreen
 per aprire la console.
 https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
 */
-document.getElementByClassName("apriConsole").addEventListener("click", ActionCh);
+//document.getElementByClassName("apriConsole").addEventListener("click", ActionCh);
 
 
 // Creare i giocatori:
@@ -103,7 +103,7 @@ function avviaPartita(numCaselle) {
         //     console.log("Riprova")
 
             if (naviDisponibili > 1) {
-                tabella[x-1][y-1].piena = true;     // modifica tutti gli oggeti "casella"...
+                tabella[x][y].piena = true;     // modifica tutti gli oggeti "casella"...
                 naviDisponibili--;
                 console.log("Nave schierata!");
                 console.log("Hai ancora: " + naviDisponibili + " da schierare.");
