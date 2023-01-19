@@ -35,5 +35,10 @@ JSON(JavaScript Object Notation)-> formato di dato, di valore variabile, di copp
 				ogni json può avere più coppie al suo interno {prima:"coppia", seconda:"coppia"}
 				e sono degli oggetti a tutti gli effeti, e possono essere aggiunti ad un array.
 				
+HashTable 			-> struttura dati, array associativo. Simile al Json, dove al suo interno
+				sono presenti elementi coppie di chiavi/valori, a cui si accede
+				usando la chiave stessa come indice.
+	Esempio: hashtable ht = [<"chiave1", "valore1">, <"chiave2", "valore2"]
+			ht["chiave1"] -> "valore1";
 
 
