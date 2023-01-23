@@ -36,16 +36,18 @@ https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
 let giocatore1 = {
     nome: "TU",
     colpiSparati: 0,
-    punti: 0
+    punti: 0,
+    tabella: []
 };
 
 let giocatore2 = {
     nome: "avversario",
     colpiSparati: 0,
-    punti: 0
+    punti: 0,
+    tabella: []
 };
 
-let tabella = [];
+let giocatori = [giocatore1, giocatore2];
 
 let naviDisponibili = 5;
 
@@ -60,106 +62,111 @@ function avviaPartita(numCaselle) {
 
     partitaAvviata = true;
 
-    tabella = new Array(numCaselle)
-
     if (partitaAvviata == true) {
-        console.log(giocatore1);
-        console.log(giocatore2);
-
         //Genero la tabella di gioco
 
-        for (let y = 0; y < numCaselle; y++) {
-            tabella[y] = new Array(numCaselle);
+        for (let i = 0; i < giocatori.length; i++) {
+            for (let y = 0; y < numCaselle; y++) {
+                giocatori[i].tabella[y] = new Array(numCaselle);
 
-            for (let x = 0; x < numCaselle; x++) {
-                let casella = {
-                    piena: false,
-                    colpita: false
-                };
+                for (let x = 0; x < numCaselle; x++) {
+                    let casella = {
+                        piena: false,
+                        colpita: false
+                    };
 
-                tabella[y][x] = casella;
-            }  
+                    giocatori[i].tabella[y][x] = casella;
+                }
+            }
         }
+        console.log(giocatore1);
+        console.log("La tua tabella:");
+        console.log(giocatore1.tabella);
 
         console.log("Piazza le navi! Una per volta, scrivi:")
         console.log("naveIn( numero della posizione in X, numero della posizione in Y")
         console.log("Hai da schierare: " + naviDisponibili + " navi.")
 
     }
-    console.log(tabella)
-    return tabella
-    
+    return
 }
 
-//while (partitaAvviata == true) {      Attivare dopo aver  inserito la condizione di vittoria
+//while (partitaAvviata == true) {      Attivare dopo aver inserito la condizione di vittoria
 
-    //Posizionare le navi
-        // Quante navi??
+//Posizionare le navi
+// Quante navi??
 
-    function naveIn(x, y) {
+function naveIn(x, y) {
 
-        // if (x == 0 || y == 0) {
-        //     console.log("Non puoi piazzare una nave nelle posizioni -0-")
-        //     console.log("Riprova")
+    if (naviDisponibili > 1) {
+        giocatore1.tabella[x][y].piena = true;
+        naviDisponibili--;
+        console.log("Nave schierata!");
+        console.log("Hai ancora: " + naviDisponibili + " da schierare.");
 
-            if (naviDisponibili > 1) {
-                tabella[x][y].piena = true;     // modifica tutti gli oggeti "casella"...
-                naviDisponibili--;
-                console.log("Nave schierata!");
-                console.log("Hai ancora: " + naviDisponibili + " da schierare.");
-    
-            } else if (naviDisponibili < 1) {
-                console.log("Tutte le navi schierate! è ora di sparare.")
-    
-            } else {
-                console.log("Non hai più navi da schierare!")
-            }
-        }
-    //}
+    } else if (naviDisponibili < 1) {
+        console.log("Tutte le navi schierate! è ora di sparare.")
 
-    //Giocatore corrente?
-
-    function turno() {
-
-        let giocatori = [giocatore1, giocatore2]
-        let giocatoreCorrente = false;
-
-        if (giocatori == 0) {
-            giocatoreCorrente = true
-            console.log("è il tuo turno!")
-        } else {
-            console.log("Tocca all'avversario...")
-        }
+    } else {
+        console.log("Non hai più navi da schierare!")
     }
 
-    //funzione per sparare
+    let naviAvversario = 5;
+    let numeroRandom = Math.floor(Math.random() * giocatore2.tabella.length);
+    
 
-    console.log("Inserisci le coordinate. Scrivi:");
-    console.log("sparo(numero per X , numero per Y)")
+    if (naviAvversario > 1) {
+        giocatore2.tabella[numeroRandom][numeroRandom].piena = true;
+        naviAvversario--;
 
-    function sparo(x, y) {
+    } else {
+        console.log("Non hai più navi da schierare!")
+    }
 
-        tabella.forEach(element => {
-            if (x == tabella.x && y == tabella.y) {
-                if (tabella.piena == true) {
-                    console.log("Colpita! Hai fatto un punto!")
-                    tabella.colpita = true;
-                    giocatore1.colpiSparati++;
-                    giocatore1.punti++;
 
-                } else {
-                    if (tabella.colpita == true) {
-                        console.log("Ehi! Hai già sparato qui e non c'era niente se non l'acqua!")
-                        giocatore1.colpiSparati++;
+}
 
-                    }
-                    console.log("Acqua!")
-                    tabella.colpita = true;
+
+//Giocatore corrente?
+
+function turno() {
+
+    if (giocatori == 0) {
+        giocatoreCorrente = true
+        console.log("è il tuo turno!")
+    } else {
+        console.log("Tocca all'avversario...")
+    }
+}
+
+//funzione per sparare
+
+console.log("Inserisci le coordinate. Scrivi:");
+console.log("sparo(numero per X , numero per Y)")
+
+function sparo(x, y) {
+
+    tabella.forEach(element => {
+        if (x == tabella.x && y == tabella.y) {
+            if (tabella.piena == true) {
+                console.log("Colpita! Hai fatto un punto!")
+                tabella.colpita = true;
+                giocatore1.colpiSparati++;
+                giocatore1.punti++;
+
+            } else {
+                if (tabella.colpita == true) {
+                    console.log("Ehi! Hai già sparato qui e non c'era niente se non l'acqua!")
                     giocatore1.colpiSparati++;
 
                 }
+                console.log("Acqua!")
+                tabella.colpita = true;
+                giocatore1.colpiSparati++;
+
             }
-        });
+        }
+    });
     //}
 }
 
