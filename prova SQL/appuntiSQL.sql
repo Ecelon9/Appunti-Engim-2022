@@ -110,3 +110,70 @@ i valori, non possiamo lasciare il campo vuoto, perchè sql si aspetterà un cam
 quindi durante l'inserimento (rispettando la sequenza di valori), dovremo inserire NULL,
 nel valore che vogliamo inserire vuoto
 */
+
+/*
+Attenzione al valore NULL perchè non può essere confrontato. Quindi se volessimo verificare se
+dei valori siano NULL, bisogna scrivere 
+
+WHERE IS null (oppure not null)
+*/
+
+/*_________________________________________________________________________________________________________*/
+
+
+
+/* Usa la tabella orderDetails per mostrare numero d’ordine, numero di linea, e il prodotto tra quantity e price, 
+odina per quantity*price decrescente.*/
+
+SELECT orderNumber, orderLineNumber, quantityOrdered* priceEach
+FROM orderdetails
+ORDER BY priceEach*quantityOrdered;
+
+
+/*Per fornire un ordine che non sia né crescente né decrescente, ma che segua una convenzione data da me, 
+si usa il comando FIELD. */
+
+SELECT orderNumber, status
+FROM orders
+ORDER BY FIELD(status,
+        'In Process',
+        'On Hold',
+        'Cancelled',
+        'Resolved',
+        'Disputed',
+        'Shipped');
+
+/*__________________________________________________________________________________________________________*/
+
+
+SELECT concat(firstName, " ", lastName) as nomi, jobTitle /* Raggruppiamo i nomi in una nuova tabella chiamata nomi */
+from employees 
+WHERE jobTitle = "Sales rep" 
+order by nomi desc, jobTitle;
+
+
+/*Se eseguo la seguente query cosa succede? Cosa fa l’operatore BETWEEN? */
+
+SELECT firstName, lastName, officeCode
+FROM employees
+WHERE officeCode BETWEEN 1 AND 3 /* estremi inclusi */
+ORDER BY officeCode;
+
+/* Aggiungi la condizione che abbiano creditlimit > 100000; Qui servono le parentesi? Cosa viene fuori se non le uso? */
+
+SELECT c.customerName, c.country, c.creditLimit
+FROM customers c
+WHERE (c.country = 'USA' OR c.country = 'France') AND c.creditLimit > 100000
+ORDER BY c.creditLimit;
+
+/* è importante la parentasi perchè potrebbe comportarsi in maniera imprevedibile */
+
+/* mia soluzione: */
+
+SELECT c.customerName, c.country, c.state, c.creditLimit
+FROM customers as c 
+where c.country = "USA" OR c.country = "CA"
+order by c.creditLimit > 100000 desc;
+
+
+
