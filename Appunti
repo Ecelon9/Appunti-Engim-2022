@@ -63,6 +63,8 @@ GIT:	repository: spazione dedicato per le versioni degli script
 	cd nomeCartella: permette di aprire un'altra cartella 
 	- aggiungendo ".." torniamo indietro di una cartella
 	- scrivendo solo "cd", torna alla home
+	nano nomedelfile: permette di creare un file di testo
+	mkdir nomedelfile: permette di creare una cartella
 	
 		
 	
