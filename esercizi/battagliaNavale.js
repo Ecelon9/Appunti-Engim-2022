@@ -37,6 +37,7 @@ let partitaAvviata = false
 
 console.log("                    Per avviare la partita a Battaglia Navale, scrivi qui sotto: ");
 console.log("                       avviaPartita( numero di caselle che vuoi sul tabellone ) ");
+console.log("                               per esempio, vuoi un 5x5? Scrivi 5");
 
 function avviaPartita(numCaselle) {
 
@@ -61,11 +62,11 @@ for (let i = 0; i < giocatori.length; i++) {                //ciclio i giocatori
         console.log(giocatore1);
         console.log("La tua tabella:");
         console.log(giocatore1.tabella);
-
+        console.log("");
         console.log("Ok! La griglia è pronta. Con quante navi vuoi giocare?");
         console.log("Scrivi: numeroNavi(il numero di quante navi vuoi).");
         console.log("Sappi che l'avversario, avrà la tua stessa quantità.");
-        console.log("Se vuoi sapere come sta andando, scrivi: info()")
+        console.log("Se vuoi sapere come sta andando, scrivi: info()");
 
     }
     return
@@ -73,8 +74,8 @@ for (let i = 0; i < giocatori.length; i++) {                //ciclio i giocatori
 
 function info() {
 
-    console.log("Il tuo punteggio: " + giocatore1.punti + " " + giocatore1.colpiSparati);
-    console.log("Il tuo avversario: " + giocatore2.punti + " " + giocatore2.colpiSparati);
+    console.log("Il tuo punteggio: " + giocatore1.punti + " Colpi sparati: " + giocatore1.colpiSparati);
+    console.log("Il tuo avversario: " + giocatore2.punti + " Colpi sparati: " + giocatore2.colpiSparati);
     console.log("La tua tabella:");
     console.log(giocatore1.tabella);
 
@@ -114,9 +115,10 @@ function info() {
         naviDisponibili = totale;
         naviAvversario = totale;
 
-        console.log("Bene, adesso, piazza le navi! Una per volta, scrivi:")
-        console.log("naveIn( numero della posizione in Y, numero della posizione in X )")
-        console.log("Hai da schierare: " + naviDisponibili + " navi.")
+        console.log("Bene, adesso, piazza le navi! Una per volta, scrivi:");
+        console.log("naveIn( numero della posizione in Y, numero della posizione in X )");
+        console.log("");
+        console.log("Hai da schierare: " + naviDisponibili + " navi.");
 
     }
 
@@ -135,6 +137,7 @@ function info() {
                 giocatore1.tabella[x][y].piena = true;
                 naviDisponibili--;
                 navePiazzataBene = true;
+                console.log("");
                 console.log("Nave schierata!");
                 console.log("Hai ancora: " + naviDisponibili + " da schierare.");
 
@@ -142,12 +145,15 @@ function info() {
                 giocatore1.tabella[x][y].piena = true;
                 naviDisponibili--;
                 navePiazzataBene = true;
+                console.log("");
                 console.log("Tutte le navi schierate! è ora di sparare.");
+                console.log("");
                 console.log("Inserisci le coordinate. Scrivi:");
                 console.log("sparo(numero per X , numero per Y)");
 
             } else {
                 console.log("Non hai più navi da schierare!");
+                console.log("");
                 console.log("Inserisci le coordinate. Scrivi:");
                 console.log("sparo(numero per X , numero per Y)");
             }
@@ -187,12 +193,14 @@ function info() {
 
         if (bersaglioDelGiocatore.colpita == true) { //per prima cosa, controllo se la casella è già stata colpita 
             console.log("Ehi! Hai già sparato qui e non c'era niente se non l'acqua!");
+            console.log("");
             console.log("Tocca al pc...");
             giocatore1.colpiSparati++;
             sparato = true;
 
         } else if (bersaglioDelGiocatore.piena == true) {       //è stata piazzata una nave in quella casella?
             console.log("Affondata! Hai fatto un punto!");
+            console.log("");
             console.log("Tocca al pc...");
             bersaglioDelGiocatore.colpita = true;
             giocatore1.colpiSparati++;
@@ -202,6 +210,7 @@ function info() {
 
         } else {
             console.log("Acqua!");
+            console.log("");
             console.log("Tocca al pc...");
             bersaglioDelGiocatore.colpita = true;
             giocatore1.colpiSparati++;
