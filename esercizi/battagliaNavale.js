@@ -31,12 +31,12 @@ let naviAvversario = 0;
 
 
 
-let partitaAvviata = false
+let partitaAvviata = false;
 
 // Creare la tabella di gioco:
 
 console.log("                    Per avviare la partita a Battaglia Navale, scrivi qui sotto: ");
-console.log("                       avviaPartita( numero di caselle che vuoi sul tabellone ) ");
+console.log("                   avviaPartita( numero della lunghezza delle righe del tabellone ) ");
 console.log("                               per esempio, vuoi un 5x5? Scrivi 5");
 
 function avviaPartita(numCaselle) {
@@ -81,30 +81,24 @@ function info() {
 
 }
 
-//while (condizioneVittoria == true) {     // non trovo la condizione giusta
+// while (partitaAvviata == true) {     // non trovo la condizione giusta
 
     //condizione di vittoria che wrappa tutte queste funzioni
 
     function condizioneVittoria(gioc, pc) {
         gioc = giocatore1.punti;
         pc = giocatore2.punti;
-        let vittoria = false;
 
         if (gioc == punteggioMassimo) {
-            vittoria = true;
             partitaAvviata = false;
             console.log("                                           HAI VINTO!");
             console.log("           Rematch? Riscrivi: avviaPartita(e inserisci la dimensione per la tabella)");
-            return vittoria;
         }
         if (pc == punteggioMassimo) {
-            vittoria = true;
             partitaAvviata = false;
             console.log("                               HA VINTO IL PC... che sfortuna.");
             console.log("           Rematch? Riscrivi: avviaPartita(e inserisci la dimensione per la tabella)");
-            return vittoria;
         }
-        return vittoria;
     }
 
     //Chiedo quante navi?
