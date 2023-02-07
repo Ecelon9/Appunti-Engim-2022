@@ -43,9 +43,8 @@ function avviaPartita(numCaselle) {
 
     partitaAvviata = true;
 
-    if (partitaAvviata == true) {
         //Genero la tabella di gioco
-for (let i = 0; i < giocatori.length; i++) {                //ciclio i giocatori
+        for (let i = 0; i < giocatori.length; i++) {                //ciclio i giocatori
             for (let y = 0; y < numCaselle; y++) {
                 giocatori[i].tabella[y] = new Array(numCaselle);    //dichiaro un nuovo array, per giocatore
 
@@ -68,8 +67,6 @@ for (let i = 0; i < giocatori.length; i++) {                //ciclio i giocatori
         console.log("Sappi che l'avversario, avrà la tua stessa quantità.");
         console.log("Se vuoi sapere come sta andando, scrivi: info()");
 
-    }
-    return
 }
 
 function info() {
