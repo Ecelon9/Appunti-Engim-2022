@@ -1,0 +1,54 @@
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bordo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 400px;
+    border-style: outset;
+    border-radius: 5px;
+    padding: 25px;
+    padding-right: 0px;
+}
+
+.bordo div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+}
+
+.bordo div p {
+    width: 100%;
+}
+
+form input {
+    margin: 10px;
+    height: 30px;
+    width: 85%;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+
+#consoleBox {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+}
+
+#consoleBox input {
+    width: 350px;
+    height: 120px;
+    display: block;
+
+}
