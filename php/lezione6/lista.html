@@ -1,0 +1,46 @@
+
+<a href="lista.php?type=0&limit=4" style="font-size : 30px">Lista non ordinata</a>
+<hr>
+
+<a href="lista.php?type=1&limit=6" style="font-size : 30px">Lista ordinata</a>
+<hr>
+
+<a href="lista.php?type=0" style="font-size : 30px">Lista non ordinata senza limite</a>
+<hr>
+
+<a href="lista.php?type=1" style="font-size : 30px">Lista ordinata senza limite</a>
+<hr>
+
+
+<form action="show_input.php" method="POST">
+
+    <input type="text" name="nome" value="" placeholder="Nome:"><br>
+    <input type="password" name="psw" value="" placeholder="Password:"><br>
+    <input type="email" name="email" value="" placeholder="eMail:"><br>
+    <textarea name="testo" cols="30" rows="10">  </textarea><br>
+    Pasti:<br>
+    Colazione<input type="checkbox" name="check[]" value="colazione" checked="checked">
+    Pranzo<input type="checkbox" name="check[]" value="pranzo">
+    Cena<input type="checkbox" name="check[]" value="cena" checked="checked"><br>
+    <br>
+    Sesso:<br>
+    Maschio <input type="radio" name="sesso" value="m">
+    Femmina <input type="radio" name="sesso" value="f">
+    Non binario <input type="radio" name="sesso" value="nB">
+    <br>
+    <select name="sport[]">
+        <option value="arco">Tiro con l'arco</option>
+        <option value="scherma">Scherma olimpica</option>
+        <option value="null">Fancazzista</option>
+        
+
+    </select> <br>
+    <input type="range" name="" value="">
+    
+    <br><input type="submit">
+</form>
+
+<hr>
+
+
+
