@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;Somma&apos; to &apos;SommaDi2Numeri&apos;&#x0D;&#x0A;- Original project: &apos;SommaDi2Numeri&apos;&#x0D;&#x0A;- Original element: &apos;Somma&apos;&#x0D;&#x0A;- Renamed element: &apos;SommaDi2Numeri&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Somma&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{Somma.java[Somma" matchStrategy="1" name="SommaDi2Numeri" qualified="false" references="true" similarDeclarations="false" stamp="1645727470750" textual="true" version="1.0"/>
+</session>

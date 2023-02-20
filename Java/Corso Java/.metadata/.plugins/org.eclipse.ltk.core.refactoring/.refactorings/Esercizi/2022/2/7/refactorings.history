@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ArrayTre&apos; to &apos;ArrayTreQuattro&apos;&#x0D;&#x0A;- Original project: &apos;Esercizi&apos;&#x0D;&#x0A;- Original element: &apos;ArrayTre&apos;&#x0D;&#x0A;- Renamed element: &apos;ArrayTreQuattro&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ArrayTre&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{ArrayTre.java[ArrayTre" matchStrategy="1" name="ArrayTreQuattro" qualified="false" references="true" similarDeclarations="false" stamp="1644949046170" textual="true" version="1.0"/>
+</session>

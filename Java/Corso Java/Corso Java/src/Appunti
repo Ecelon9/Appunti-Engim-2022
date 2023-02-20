@@ -1,0 +1,429 @@
+
+
+
+Java è un linguaggio di programmazione di alto livello,
+ovvero viene scritto col normale linguaggio inglese, 
+a tipizzazione statica e studiato per essere indipendente dal 
+Sistema Operativo
+	
+	
+	
+						TIPI DI DATO:
+	Primitivi:
+		
+Tipo:			Default:	Memoria:		da:		a:
+boolean			false		1 bit			false	true
+char(lettera)	'\u000'		16 bit			0		65535
+byte			0			8 bit			-127	127
+short			0			16 bit			-32768	32768
+int				0			32 bit			-2^31	2^31-1
+long			0L			64 bit			-2^63	2^63-1
+float			0.0f		32 bit
+double			0.0d		64 bit
+	
+	Costrutti o complessi:
+		
+Tutti gli Oggetti.
+	
+						OPERATORI 
+		
+	Operatori aritmetici:
+		
+	+		Somma
+	-		Sottrazione
+	*		Moltiplicazione
+	/		Divisione
+	%		Modulo, o resto
+	
+	Operatori unari:
+	
+	++		Incremento di 1
+	--		Decremento di 1
+	!		Completamento logico, inverte il valore di un booleano
+	
+	Operatori relazionali:
+	
+	==		Uguale a
+	!=		Diverso da
+	>		Maggiore
+	>=		Maggiore o uguale a
+	<		Minore
+	<=		Minore o uguale a
+	
+	Operatori logici:
+		
+	&&		AND
+	||		OR
+	!		NOT
+	
+	
+					CLASSI E OGGETTI
+
+Nella programmazione Orientata ad Oggetti, le classi sono
+la struttura del programma, da cui derivano gli Oggetti, che
+sono una instanza della classe e possiedono Attributi e Metodi:
+
+	Attributi: sono tutte le variabili che descrivono le 
+				proprietà dell'oggetto. 
+
+	Metodi: sono tutte le funionalità che l'oggetto ci mette
+			a disposione.
+	
+		
+	Esempio:
+Classe: 
+		Rettangolo
+		
+Attributi:
+		altezza: int
+		base: int
+
+Metodi:
+		Rettangolo()
+		calcolaArea()
+		perimetro()
+		diagonale()
+		
+	Prototipo di un metodo:	
+
+Un metodo è costituito da quattro parti:
+<visibilità> <tipo> nomeMetodo = <parametri>
+
+	Il Costruttore:
+
+Una classe può avere quanti metodi si vuole ma uno 
+di questi è necessario, il Costruttore.
+è un medoto particolare che permette di costruire un'instanza
+	
+
+					VARIABILI
+	
+In Java si distinguono quattro tipi di variabili:
+
+	Variabili locali: sono le dichiarazioni all'interno 
+						del metodo.
+	Variabili di istanza: sono gli attributi e sono visibili
+							a tutti i metodi.
+	Variabili di classe (static): il loro valore è legato 
+								alla sua classe ed è uguale
+								per tutti
+	Variabili costanti (final): il loro valore non verrà 
+								alterato
+							
+							
+Un membro statico è condiviso fra tutte le istanze, quindi
+può essere utilizzato anche senza crearne una classe.
+Per esempio System, ha diversi attributi, tra cui out e in, 
+che sono statici e possono essere richiamati così:
+
+	System.out / in
+	
+Invece di crearci la classe:
+
+	System mioSistema = new System();
+	mioSistema.out / in
+	
+	
+	
+	
+					CASTING
+					
+è possibile cambiare il tipo di un primario in corso d'opera
+	
+		int numeriInterni = ....;
+		int altriNumeriInteri = ...;
+		
+	 	float totale = (double)numeriInterni + (float)altriNumeriInteri;
+	 	
+In questo modo, "totale" tratterà i due primitivi che
+vengono passati, come se fossero double e float, in modo che
+non vengano persi i valori decimali derivanti dall'operazione.
+
+					SWITCH-CASE
+	
+Un modo per fornire logica condizionale al nostro programma
+è il costrutto Switch-case. Questo ciclo verrà ripetuto fin quando
+la casistica diventerà TRUE.
+	
+	switch (Qui si inserisce l'oggetto che vogliamo valutare){
+	case '...':
+			eseguiamo questa operazione;
+	break; <-- questo interrompe il ciclo, quando termina la funzione.
+	case '...':
+			eseguiamo questa operazione;
+	break;
+	case '...':
+			eseguiamo questa operazione;
+	break;
+	} etc etc etc...
+		
+		
+					CICLO FOR	
+	
+Un ciclo alternativo è il FOR e il vantaggio di questo è
+che in partenza sappiamo già quante volte ci serve ripeterlo.
+
+		int i = 0; (questo sarà il contatore)	
+		for (i = 0; i <= 100; i++) {
+			eseguo le operazioni 
+			i++ incremento fino a soddisfare la casistica i<=100
+			e rincomincio
+		} (quando la casistica viene soddisfatta, il ciclo viene terminato)
+		
+	
+					ARRAY
+					
+Un Array è un oggetto che permette di immagazzinare valori o
+altri oggetti al suo interno, in maniera continua, omogenea
+e con lungezza fissa.
+Ovvero che ogni dato avrà una posizione precisa all'interno 
+dell'array (partendo dal numero 0, per la prima posizione) e
+i valori al suo interno dovranno essere dello stesso tipo.
+In oltre, quando viene dichiarato, bisogna stabilire da subito
+quante celle, quanti valori, dovrà contenere l'array.
+	
+		int listaVal [] = new int[5];
+		float listaVal [] = new float [5];
+				
+				oppure, metodo alterntivo:
+		
+		int[] listaVal = new int[5];
+		float[] listaVal = new float[5];
+		
+e per richiamare il valore si usa:
+	
+		listaVal[numero della posizione del dato che si vuole]
+		listaVal[3]
+		
+Per copiare un array all'interno di un altro, serve un ciclo FOR:
+	
+		int[] array1 = new int[x];
+		int[] array2 = new int[x];
+		
+		for (i = 0; i < array1.length; i++) {
+			array2[i] = array1[i];
+		};
+		
+		
+		
+					ARRAY MULTIDIMENSIONALI
+
+Questi array sono come degli Array di Array	e sono costruiti
+per righe e colonne:
+	
+		Dichiarazione:
+		int[][] matrice = new int[4][5];
+		
+Per accedervi, servono due cicli for, annidiati:
+		
+		int i;
+		int j;
+		
+		for (i=0, i < 4; i++ {
+			for (j=0, j < 5; j++) {
+				} 
+			}
+
+
+				EREDITARIETA'
+				
+Questo meccanismo permette di specializzare piccole
+porzioni di codice, rendendo sia la lettura che la
+manutenzione più facile. Anche la scrittura 
+ne beneficia perchè si evita di riscrivere porzioni
+uguali di codice, più volte.
+
+Si definisce una classe "PADRE"(Base), da cui
+le classi "FIGLIE"(Derivate), ereditano i parametri:
+
+	Esempio:
+	
+public class VeicoloAMotore {
+	
+	Attributi comuni
+	
+	costruttore
+	
+	metodi comuni
+
+	}
+	
+public class Auto extends VeicoloAMotore{
+
+	Attributi specifici
+	
+	costruttore
+	
+	metodi specifici
+
+	}
+	
+public class Moto extends VeicoloAMotore{
+
+	Attributi specifici
+	
+	costruttore
+	
+	metodi specifici
+
+	}
+
+Con la keyword "EXTENDS", indichiamo quale classe 
+vogliamo estendere su questa, così che VeicoloAMotore
+diventi la classe padre di Auto e Moto.
+A questo punto, quando noi richiameremo la classe Auto,
+questa erediterà tutti i parametri comuni contenuti
+nella classe padre, più i suoi attributi specifici.
+
+
+
+				POLIMORFISMO
+				
+Il polimorfismo, ci permette di alterare i parametri
+della classe padre soltanto quando necessario
+senza doverli riscrivere:
+
+	Esempio:
+
+public class VeicoloAMotore {
+	
+	Attributi comuni
+	
+	costruttore
+	
+	public String toString() {
+		return attributi comuni
+	}
+
+	}
+	
+public class Auto extends VeicoloAMotore{
+
+	Attributi specifici
+	
+	costruttore
+	
+	public String toString() {
+		return super.toString() + attributi specifici
+		}
+
+	}
+
+Tramite il keyword "SUPER. " è possibile richiamare
+un parametro della classe padre, oppure con il keyword
+"SUPER(.....)" è possibile passare dei parametri
+al metodo della classe padre, da una classe figlia,
+sfruttando il costruttore padre.
+Nell'esempio, stiamo richiamando un metodo della
+classe padre e in aggiunta ai suoi parametri
+stiamo aggiungendo i parametri presi dalla classe figlia
+
+
+				CLASSI ASTRATTE
+				
+Quando dobbiamo progettare una gerarchia di classi,
+ci rendiamo conto che lo scopo della classe padre
+è solamente quello di racchiudere i parametri comuni
+alle classe figlie, di conseguenza non è sempre 
+necessario istanziarla. Qui entra in gioco il concetto
+di classi Astratte.
+Queste classi possono comportarsi esattamente allo
+stesso modo delle classi padri e figlie, con la
+differenza che non vengono istanziate quando viene
+lanciato il programma.
+
+Servono alcune accortezze per essere usate:
+
+	Esempio:
+
+public abstract class Animale {
+	
+	public abstract String verso(); lasciato vuoto
+	public abstract String siMuove(); lasciato vuoto
+	public abstract String vive(); lasciato vuoto
+	
+	}
+	
+public class AnimaleTerrestre extends Animale{
+
+	public String vive(){
+		return "sulla terraferma";
+		}
+	}
+
+In questo esempio stiamo usando la classe padre
+come contenitore e quindi la rendiamo astratta,
+così come i suoi metodi, poi dalla classe figlia
+passiamo un parametro al metodo "vive".
+Ogni classe è astratta se almeno uno dei suoi 
+parametri è astratto e rimangono tali fin quando
+non vengono implementati tutti e quindi non possono
+essere usate per creare nuovi oggetti.
+
+
+					INTERFACCE
+					
+Tutti i parametri all'interno delle infracce sono astratte
+e qualsiasi attributo è una costante.
+Una classe astratta può estenderne fino al massimo una,
+ma può implementare più interfacce. Un'interfaccia 
+può estenderne un'altra.
+
+
+
+				GESTIONE DELLE ECCEZIONI
+				
+è possibile che determinate operzioni potrebbero generare
+degli errori/eccezioni che porterebbero al crash del
+programma: si possono gestire usando il modulo TryCatch
+
+	try {
+		int risultato = 5 / 0;
+	} catch(Exeption nome) {
+		nome.printStackTrace();
+	} finally {
+		System.out.print("Blocco try terminato!");
+	}
+
+In questo modo il programma proverà a fare l'operazione
+e se dovesse generare un errore, gli faremo stampare 
+l'elenco di errori senza far crashare il programma.
+Il blocco "finally" viene sempre generato.
+
+
+
+
+						SQL
+						
+Structured Query Language 
+(linguaggio di interrogazione strutturato)
+è un linguaggio che permette di creare tabbelle ed uno
+sturmento standard per la gestione dei database.
+
+Per la creazione, si usano comandi in Stringa:
+LIBRI (Titolo, Autore, Genere, ISBN)
+
+comando: create table, nome: LIBRI (
+	Titolo char(100),
+	Autore char(100),	<- Domini degli attributi
+	Genere char(100),
+	ISBN char(50) primary key	<- Vincoli
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
