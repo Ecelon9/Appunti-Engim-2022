@@ -175,5 +175,15 @@ FROM customers as c
 where c.country = "USA" OR c.country = "CA"
 order by c.creditLimit > 100000 desc;
 
+/*
+
+SELECT (DISTINCT) (AVG, MAX, MIN, SUM, COUNT)       Seleziona un attributo
+FROM                                                Indica da che tabella prendere le informazioni
+JOIN (INNER/LEFT/RIGHT)                             Unisce più tabelle con lo stesso attributo, in una nuova tabella
+WHERE (IN, NOT IN)                                  Seleziona solo le righe che soddisfano la richiesta e non mostra le altre
+GROUP BY                                            Raggruppa gli elementi per attributo comune
+HAVING                                              Come la WHERE dove si può specificare una casistica (quantità > 100)
+
+*/
 
 
