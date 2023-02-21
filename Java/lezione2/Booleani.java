@@ -1,3 +1,4 @@
+import java.net.SocketAddress;
 import java.util.Scanner;
 
 public class Booleani {
@@ -30,11 +31,6 @@ public class Booleani {
         System.out.println("E' maggiore di 1000 e finisce per 3? " + (numero > 1000 && (numero % 10 == 3)));
 
         System.out.println("E' bisestile? " + (numero % 4 == 0 && !(numero % 100 == 0) || numero % 400 == 0));
-
-
-
-
-
 
 
         input.close();
