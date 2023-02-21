@@ -19,7 +19,7 @@ public class Main {
 		secondoNum = input.nextInt();
 		
 		SommaDi2Numeri addizione2 = new SommaDi2Numeri(primoNum, secondoNum);
-		addizione2.primoNum
+		addizione2.primoNum;
 		
 		
 		
