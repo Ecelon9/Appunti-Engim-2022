@@ -1,16 +1,8 @@
-import java.net.SocketAddress;
 import java.util.Scanner;
 
 public class Booleani {
 
     public static void main(String[] args) {
-
-        /*
-         * not !
-         * and &&
-         * or ||
-         * 
-         */
 
         // Inserire un numero da tastiera e stampare la valutazione se è pari o dispari
 
