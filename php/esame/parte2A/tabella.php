@@ -1,10 +1,33 @@
 <?php
 
 require("dati.php");
+require("index.php");
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    $orari['oraInizio']= $_POST['oraInizio'] ?? '00';
+    $orari['oraFine']= $_POST['oraFine'] ?? '23';
+
+} 
+
+function filtra($tabella, $orari) {
+    $nuovaTab = [];
+
+    for ($i=$orari["oraInizio"]; $i < $orari["oraFine"]; $i++) { 
+        array_push($nuovaTab, $tabella[$i]);
+    }
+
+    var_dump($nuovaTab);
+    //mostraTabella($nuovaTab);
+
+}
+
+filtra($trasporti, $orari);
 
 function mostraTabella($dati) {
 
-    $html = "<table border=1>" .
+    $html = "<div style='display: flex; justify-content: center;'>
+    <table border=1>" .
     "<th> h </th>" .
     "<th> CLA </th>" .
     "<th> CRO </th>" . //Non riesco a recuperare le chiavi nel foreach...
@@ -41,22 +64,12 @@ function mostraTabella($dati) {
             }
         }
         $kgTot = $cla + $cro + $cmi;
-        $html .= "<td>" . $kgTot . "</td></tr>";
+        $html .= "<td>" . $kgTot . "</td></tr></div>";
     
     }
     echo $html;
 
 }
-
-mostraTabella($trasporti);
-
-
-
-
-
-
-
-
 
 
 
