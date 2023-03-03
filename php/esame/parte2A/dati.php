@@ -1,6 +1,5 @@
 <?php 
 
-
 $trasporti = [
     "00" => ["CLA" => rand(0,20), "CRO" => rand(0,20), "CMI" => rand(0,20)],
     "01" => ["CLA" => rand(0,20), "CRO" => rand(0,20), "CMI" => rand(0,20)],
@@ -26,7 +25,7 @@ $trasporti = [
     "21" => ["CLA" => rand(0,20), "CRO" => rand(0,20), "CMI" => rand(0,20)],
     "22" => ["CLA" => rand(0,20), "CRO" => rand(0,20), "CMI" => rand(0,20)],
     "23" => ["CLA" => rand(0,20), "CRO" => rand(0,20), "CMI" => rand(0,20)],
-]
+];
 
 
 
