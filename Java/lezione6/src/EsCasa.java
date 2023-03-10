@@ -7,7 +7,23 @@ public class EsCasa {
         //disinnescaLaBomba();
 
         //Esercizio 2:
-        System.out.println(ordine());
+        //System.out.println(ordine());
+
+        //Esercizio 3:
+        int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("Array inserito:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+
+        }
+
+        System.out.println();
+        inverti(array);
+        System.out.println();
+
+        String parola = "a b c d e";
+
+        System.out.println(tuttoAttaccato(parola));
 
     }
 
@@ -26,7 +42,7 @@ public class EsCasa {
             int somma = 0;
             int indovinati = 0;
 
-            if(codice.equals(codiceSegreto)) {
+            if (codice.equals(codiceSegreto)) {
                 System.out.println("Bravo! Hai indovinato e la bomba è disinnescata!");
                 tentativi = tentativiMassimi;
                 vittoria = true;
@@ -36,13 +52,13 @@ public class EsCasa {
                 if (codice.toLowerCase().contains("abcdefghijklmopqrstuvwxyz")) {
                     tentativi++;
                     System.out.println("Non inserire lettere, solo numeri!");
-                    System.out.println("Riprova! Ti rimangono ancora " + ((tentativiMassimi - tentativi) +1) + " tentativi, prima che la bomba esploda...");
+                    System.out.println("Riprova! Ti rimangono ancora " + ((tentativiMassimi - tentativi) + 1) + " tentativi, prima che la bomba esploda...");
                     codice = input.nextLine();
 
                 } else if (codice.length() < codiceSegreto.length() || codice.length() > codiceSegreto.length()) {
                     tentativi++;
                     System.out.println("Hai inserito " + codice.length() + " numeri, devi inserirne 5!");
-                    System.out.println("Riprova! Ti rimangono ancora " + ((tentativiMassimi - tentativi) +1) + " tentativi, prima che la bomba esploda...");
+                    System.out.println("Riprova! Ti rimangono ancora " + ((tentativiMassimi - tentativi) + 1) + " tentativi, prima che la bomba esploda...");
                     codice = input.nextLine();
 
                 } else {
@@ -56,7 +72,7 @@ public class EsCasa {
                     }
                     tentativi++;
                     System.out.println("Quasi... hai indovinato " + indovinati + " numeri su 5 e la loro somma è " + somma);
-                    System.out.println("Riprova! Ti rimangono ancora " + ((tentativiMassimi - tentativi) +1) + " tentativi, prima che la bomba esploda...");
+                    System.out.println("Riprova! Ti rimangono ancora " + ((tentativiMassimi - tentativi) + 1) + " tentativi, prima che la bomba esploda...");
                     codice = input.nextLine();
 
                 }
@@ -80,14 +96,43 @@ public class EsCasa {
             array[i] = Integer.parseInt(input.nextLine());
         }
 
-        for (int i = 0; i < array.length -1; i++) {
-            if (array[i] > array[i +1])
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] > array[i + 1])
                 return false;
         }
         return true;
     }
 
+    public static int[] inverti(int[] array) {
+        int cont = 0;
+        int[] arrayInvertito = new int[array.length];
 
+        for (int i = arrayInvertito.length - 1; i >= 0; i--) {
+            arrayInvertito[cont] = array[i];
+            cont++;
+
+        }
+
+        System.out.println("Array invertito:");
+        for (int i = 0; i < arrayInvertito.length; i++) {
+            System.out.print(arrayInvertito[i] + " ");
+        }
+
+        return arrayInvertito;
+    }
+
+    public static String tuttoAttaccato(String parola) {
+        String attaccato = "";
+
+        for (int i = 0; i < parola.length(); i++) {
+            if (parola.substring(i).equals("\f")) {
+                attaccato.concat(parola.substring(i));
+
+            }
+        }
+        return attaccato;
 
     }
+}
+
 
