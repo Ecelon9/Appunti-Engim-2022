@@ -5,8 +5,7 @@ body{
     font-family: 'Roboto', sans-serif;
     letter-spacing: 1px;
     font-weight: 500;
-    background: #eaeaea;
-    color: #4e4e4e;
+   background-color: lightgray;
 }
 
 a{

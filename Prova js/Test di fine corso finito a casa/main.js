@@ -28,24 +28,59 @@ fetch('https://reqres.in/api/users')
         console.log(data);
 
         //parte A2
-        for (let key in data) {
+        let riga = document.getElementById("riga")
 
-            data.data.forEach(element => {
-                inserisciDati(element)
+        data.data.forEach(element => {
+           creaColonna(riga, element);
+           
+        });
 
-            });
-        }
-
-        //{ id: 1, email: 'george.bluth@reqres.in', first_name: 'George', last_name: 'Bluth', avatar: 'https://reqres.in/img/faces/1-image.jpg' }
+        riga.append(riga);
 
     });
 
-function inserisciDati(element) {
-    document.getElementById("id").innerText = element["id"];
-    document.getElementById("nome").innerText = element["first_name"] + " " + element["last_name"];
-    document.getElementById("email").innerText = element["email"];
-    document.getElementById("immagine").src = element["avatar"];
+function creaColonna(section, element) {
+    let colonna = document.createElement("div")
+    colonna.classList = "colonna"
+    colonna.style = "display: flex; flex-direction: column; justify-content: center; align-items: center; border-style: groove; border-radius: 20px; padding: 20px; background-color: white"
 
+    let testo = document.createElement("div")
+    testo.style = "display: flex; flex-direction: row; align-items: center;"
+
+    let paragrafoId = document.createElement("p")
+    paragrafoId.textContent = element["id"];
+    paragrafoId.style = "margin: 10px; padding: 15px; background-color: gray; border-radius: 50%; display: inline-block;"
+
+    testo.append(paragrafoId);
+
+    let divNomeEmail = document.createElement("div");
+    divNomeEmail.stiyle = "display: flex; flex-direction: column; align-items: center;"
+
+    let nome = document.createElement("h3")
+    nome.textContent = element["first_name"] + " " + element["last_name"];
+    let mail = document.createElement("h3")
+    mail.textContent = element["email"];
+    nome.style = "margin: auto;"
+    mail.style = "margin: auto;"
+
+
+    divNomeEmail.append(nome, mail);
+    testo.append(divNomeEmail);
+    colonna.append(testo);
+
+    let img = document.createElement("img")
+    img.src = element["avatar"];
+    img.alt = "";
+    img.style = "width: 250px; height: 250px;"
+    colonna.append(img);
+
+    let contatti = document.createElement("a")
+    contatti.href = "mailto:useremail@gmail.com"
+    contatti.textContent = "Contatti"
+    contatti.style = "margin-top: 20px; text-decoration: auto; color: blue;"
+    colonna.append(contatti)
+
+    section.append(colonna)
 
 }
 
