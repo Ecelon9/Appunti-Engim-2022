@@ -10,6 +10,7 @@ public class EsCasa {
         //System.out.println(ordine());
 
         //Esercizio 3:
+        /*
         int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         System.out.println("Array inserito:");
         for (int i = 0; i < array.length; i++) {
@@ -22,10 +23,46 @@ public class EsCasa {
         System.out.println();
 
         String parola = "a b c d e";
-
+        System.out.println("Parola inserita: " + parola);
         System.out.println(tuttoAttaccato(parola));
+        */
+        // Esercizio p260
+
+        Scanner tastiera = new Scanner(System.in);
+        System.out.println("Inserire il voto dell'esame 1:");
+
+        int punteggiolniziale = Integer.parseInt(tastiera.nextLine());
+        int[] punteggioSeguente = new int[3];
+
+        for (int i = 0; i < punteggioSeguente.length; i++) {
+            punteggioSeguente[i] = punteggiolniziale + 5 * i;
+        }
+
+        double[] punteggioMedio = ottieniArrayDiMedie(punteggiolniziale, punteggioSeguente);
+
+        for (int i = 0; i < punteggioSeguente.length; i++) {
+            System.out.println("Se il voto all'esame 2 sara' " + punteggioSeguente[i]);
+            System.out.println("la media sara' uguale a " + punteggioMedio[i]);
+
+        }
+    }
+
+    public static double[] ottieniArrayDiMedie(int punteggioIniaziale, int[] punteggioSeguente) {
+        double[] temp = new double[punteggioSeguente.length];
+
+        for (int i = 0; i < temp.length; i++) {
+            temp[i] = getMedia(punteggioIniaziale, punteggioSeguente[i]);
+
+        }
+        return temp;
 
     }
+
+    public static double getMedia(int n1, int n2) {
+        return (n1 + n2) / 2.0;
+    }
+
+
 
     //Indovina il codice:
     public static void disinnescaLaBomba() {
@@ -122,17 +159,19 @@ public class EsCasa {
     }
 
     public static String tuttoAttaccato(String parola) {
-        String attaccato = "";
-
-        for (int i = 0; i < parola.length(); i++) {
-            if (parola.substring(i).equals("\f")) {
-                attaccato.concat(parola.substring(i));
-
-            }
-        }
-        return attaccato;
+        return parola.replaceAll(" ", "");
 
     }
+
+
+
+
+
+
+
+
+
+
 }
 
 
