@@ -130,4 +130,19 @@ public class Calcolatrice {
         System.out.println("Il risultato è: " + this.risultato);
 
     }
+
+    /*
+     * public void continua() {
+     * System.out.println("Vuoi eseguire un'altro calcolo? y  n");
+     * String scelta = input.next();
+     * 
+     * if(scelta == "y") {
+     * new Calcolatrice();
+     * 
+     * } else {
+     * System.out.println("Chiudo");
+     * 
+     * }
+     * }
+     */
 }

@@ -1,18 +1,17 @@
-package lezione12Hassan.interfacce;
+package lezione10Hassan;
 /**
  * Astrazione
  */
 public abstract class Poligono {
 
     /*
-     * L'astrazione serve per stabilire in anticipo, Cosa voglio che il programma 
-     * faccia, ma non il come.
-     */   
+     * L'astrazione serve per stabilire in anticipo, Come voglio che il programma 
+     * venga sviluppato
+     */
 
-    /*
-    * una classe può essere astratta e può avere i suoi costruttore e metodi
-    * ma non può essere istanziata (se non tramite override)
-    */ 
+    
+
+    // una classe può essere astratta e può avere i suoi costruttore e metodi
 
     private int nLati;
 

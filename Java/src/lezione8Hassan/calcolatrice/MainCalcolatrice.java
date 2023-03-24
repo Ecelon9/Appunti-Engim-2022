@@ -1,4 +1,5 @@
 package calcolatrice;
+
 import java.util.Scanner;
 
 public class MainCalcolatrice {
@@ -22,8 +23,13 @@ public class MainCalcolatrice {
                 continua = false;
 
             }
+
         }
+
+
+
         input.close();
 
     }
+
 }
