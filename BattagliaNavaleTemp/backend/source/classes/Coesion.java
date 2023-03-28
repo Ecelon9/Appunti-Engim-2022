@@ -1,29 +1,60 @@
 package classes;
 
-public interface Coesion {
+public class Coesion {
 
-    /**
-     * Cicla all'interno di health e cambia stato alla posizione in base a location
-     * ovvero a dove è stata colpita.
-     * Poi richiama isFloating.
-     * 
-     * @param location posizione nell'array colpita
-     */
-    public void hullHit(int location);
+    private boolean floating;
+    private boolean[] health;
 
-    /**
-     * Verifica se la nave stia ancora galleggiando oppure se è stata affondata del
-     * tutto.
-     * Se tutte le posizioni di health sono false, allora setta isSank a true,
-     * che setta floating a false, quindi la nave è affondata
-     * 
-     * @return boolean, lo stato della nave
-     */
-    public boolean isFloating();
+    public Coesion(int shipLength) {
+        this.floating = true;
+        this.health = new boolean[shipLength];
+        for (int i = 0; i < this.health.length; i++) {
+            this.health[i] = true;
 
-    /**
-     * Scrive nel terminale lo stato di ogni singolo pezzo di scafo e lo stato della nave.
-     */
-    public void getStatus();
+        }
+    }
+
+    public void hullHit(int location) {
+        for (int i = 0; i < this.health.length; i++) {
+            if (i == location) {
+                this.health[i] = false;
+
+            }
+        }
+
+        this.floating = isFloating();
+    }
+
+    public boolean isFloating() {
+        boolean isFloating = false;
+
+        for (boolean hull : this.health) {
+            if (hull) {
+                isFloating = true;
+
+            } 
+        }
+
+        return isFloating;
+    }
+
+    public void getStatus() {
+        for (int i = 0; i < this.health.length; i++) {
+            if(this.health[i]) {
+                System.out.println("intact hull");
+
+            } else {
+                System.out.println("damaged hull");
+            }
+        }
+
+        System.out.print("Ship status: ");
+        if (this.floating) {
+            System.out.print("still fighting.");
+
+        } else {
+            System.out.println("sank.");
+        }
+    }
 
 }

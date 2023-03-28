@@ -23,7 +23,7 @@ public class Game {
         this.carrier = new Carrier();
         this.cruiser = new Cruiser();
         this.player1 = new Player(userName);
-        this.cpu = new Player("Computer");
+        this.cpu = new Player(userName);
 
     }
 
@@ -50,16 +50,7 @@ public class Game {
      * @param x
      * @param y
      */
-    public void placeShip(Object shipClass, int x, int y) {
-        for (int i = 0; i < player1.getTable(); i++) {
-            for (int j = 0; j < table.length; j++) {
-                
-                
-
-            }
-        }
-    } 
-
+   
 
 
 
