@@ -1,12 +1,11 @@
 const fetchData = () => {
-  const url = "https://dummyjson.com/productss";
+  const url = "https://dummyjson.com/products";
   const promise = fetch(url);
   console.log(promise);
-  const jsonPromise = promise.then(response => {
-    console.log(promise);
-    return response.json();
-  });
-  console.log(jsonPromise);
+  const jsonPromise = promise
+  .then(response => response.json())
+  .catch(err => console.log(err))
+
   jsonPromise
     .then(data => {
       console.log(data);

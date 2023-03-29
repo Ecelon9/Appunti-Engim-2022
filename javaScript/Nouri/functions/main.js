@@ -4,7 +4,7 @@ import * as functions from './source.js';
 
 let result = undefined;
 
-// result = sayHello();
+ result = sayHello();
 
 // result = greeting('John');
 
