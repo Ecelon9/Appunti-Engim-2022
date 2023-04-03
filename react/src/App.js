@@ -1,8 +1,11 @@
 import Header from "./components/Header";
+import { useState } from react;
 
 function App() {
+
+  useState();
   return (
-    <Header />
+    <Header title="Feedback ui" login="login"/>
 
   );
 }
