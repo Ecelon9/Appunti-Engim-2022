@@ -1,12 +1,11 @@
-import Header from "./components/Header";
-import { useState } from react;
+import Dashboard from "./pages/Dashboard";
 
 function App() {
 
-  useState();
   return (
-    <Header title="Feedback ui" login="login"/>
-
+    <>
+      <Dashboard />    
+    </>
   );
 }
 
