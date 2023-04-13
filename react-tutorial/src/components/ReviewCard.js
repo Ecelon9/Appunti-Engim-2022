@@ -1,11 +1,22 @@
 import { useState } from "react";
+import Button from "./Button";
+import ErrorSpan from "./ErrorSpan";
 
 
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const ReviewCard = (props) => {
+  const { title } = props;
   const [opinion, setOpinion] = useState("");
-  const {title} = props;
+  const [disabled, setDisabled] = useState(true);
+  const [error, setAlert] = useState();
+
+  const errorColor = "border-red-500";
+  const defaulftColor = "border-gray-100";
+  const [borderColor, setBorderColor] = useState(defaulftColor)
+
+  const [textColor, setTextColor] = useState("");
+
 
   /**
    * Riceviamo il cambiamento nell'input attraverso "event" del DOM
@@ -14,21 +25,34 @@ const ReviewCard = (props) => {
    * @param {*} event evento del DOM
    */
   function changeHandler(event) {
-    const {value} = event.target;
+    const { value } = event.target;
     setOpinion(value)
 
-  if (value.trim() !== "") {
+    if (value.trim() !== "" && value.length > 5) {
       setDisabled(false);
 
-  } else {
+    } else {
+      setBorderColor(defaulftColor);
+      setAlert("")
       setDisabled(true);
 
     }
   }
 
-  const [disabled, setDisabled] = useState(true);
+  function clickHandler() {
+    if(opinion.length < 8) {
+      setBorderColor(errorColor);
+      setTextColor("text-red-600");
+      setAlert("Devi inserire almeno 8 caratteri.");
 
+    } else {
+      setBorderColor(defaulftColor);
+      setTextColor("text-green-700");
+      setAlert("Hai inserito: " + opinion);
+ 
+    }
 
+  }
 
   // const clickHandler = number => {
   //   console.log(number);
@@ -60,24 +84,22 @@ const ReviewCard = (props) => {
         <div>
           <h2 className="font-medium font-Itim text-3xl my-4 text-center">{title}</h2>
           {/* <div className="flex justify-between my-4">{renderedRating}</div> */}
-            <div className="w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 border-gray-100">
-              <input
-                type="text"
-                value={opinion}
-                className="w-full focus:outline-none border-none text-xl p-1"
-                placeholder="la tua opinione..."
-                onChange={changeHandler}
-                style={{ width: "100%", border: "none", fontSize: "1rem", padding: "5px" }}
-              />
+          <div className= {"w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 " + borderColor}>
+            <input
+              type="text"
+              value={opinion}
+              className="w-full focus:outline-none border-none text-xl p-1"
+              placeholder="la tua opinione..."
+              onChange={changeHandler}
+              style={{ width: "100%", border: "none", fontSize: "1rem", padding: "5px" }}
+            />
 
-              <button
-                className="border-none rounded-md px-2 py-2 cursor-pointer font-normal transition-all ease-in duration-100 bg-slate-300 disabled:cursor-default disabled:bg-slate-100 disabled:text-slate-500 hover:enabled:bg-dark-green hover:enabled:text-white"
-                disabled={disabled}>
-                Conferma
-              </button>
+            <Button clickHandler={clickHandler} disabled={disabled} text="Conferma" />
             </div>
-            <span>{opinion}</span>
-            {/* <div className="text-red-500 font-semibold h-3 mt-2 text-center">error</div> */}
+
+            <ErrorSpan textColor={textColor} text={error} />
+
+          {/* <div className="text-red-500 font-semibold h-3 mt-2 text-center">error</div> */}
         </div>
       </div>
     </div>
