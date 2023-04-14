@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Button from "./Button";
 import ErrorSpan from "./ErrorSpan";
+import Input from "./Input";
 
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 
 const ReviewCard = (props) => {
   const { title } = props;
@@ -16,6 +17,8 @@ const ReviewCard = (props) => {
   const [borderColor, setBorderColor] = useState(defaulftColor)
 
   const [textColor, setTextColor] = useState("");
+
+  const [rating, setRating] = useState(0);
 
 
   /**
@@ -40,7 +43,7 @@ const ReviewCard = (props) => {
   }
 
   function clickHandler() {
-    if(opinion.length < 8) {
+    if (opinion.length < 8) {
       setBorderColor(errorColor);
       setTextColor("text-red-600");
       setAlert("Devi inserire almeno 8 caratteri.");
@@ -49,8 +52,17 @@ const ReviewCard = (props) => {
       setBorderColor(defaulftColor);
       setTextColor("text-green-700");
       setAlert("Hai inserito: " + opinion);
- 
+
     }
+
+  }
+
+  function removeClickHandler() {
+    setOpinion("");
+    setDisabled(true);
+    setBorderColor(defaulftColor);
+    setTextColor();
+    setAlert("Testo cancellato...")
 
   }
 
@@ -66,38 +78,34 @@ const ReviewCard = (props) => {
   //   console.log("input button clicked");
   // };
 
-  // const renderedRating = [...array].map((number, index) => {
-  //   return (
-  //     <button
-  //       key={index}
-  //       className="border-2 border-transparent mx-1 rounded-50 text-sm md:text-base w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-all ease-in duration-150 bg-slate-100 hover:bg-dark-green"
-  //       onClick={() => clickHandler(index + 1)}
-  //       disabled={false}>
-  //       {index + 1}
-  //     </button>
-  //   );
-  // });
+  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const renderedRating = [...array].map((number, index) => {
+    return (
+      <button
+        key={index}
+        className="border-2 border-black-200 mx-1 rounded-50 text-sm md:text-base w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-all ease-in duration-150 bg-slate-100 hover:bg-dark-green"
+        onClick={() => setRating(number)}
+        disabled={false}>
+        {index + 1}
+      </button>
+    );
+  });
 
   return (
     <div className="w-full flex justify-center items-center p-1">
       <div className="w-11/12 md:w-4/5 lg:w-2/5 flex flex-col p-8 mt-10 mb-5 border-2 border-gray-100 rounded-sm shadow-dark">
         <div>
           <h2 className="font-medium font-Itim text-3xl my-4 text-center">{title}</h2>
-          {/* <div className="flex justify-between my-4">{renderedRating}</div> */}
-          <div className= {"w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 " + borderColor}>
-            <input
-              type="text"
-              value={opinion}
-              className="w-full focus:outline-none border-none text-xl p-1"
-              placeholder="la tua opinione..."
-              onChange={changeHandler}
-              style={{ width: "100%", border: "none", fontSize: "1rem", padding: "5px" }}
-            />
+          <div className="flex justify-between my-4">{renderedRating}</div>
+          <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 ${borderColor}`}>
 
-            <Button clickHandler={clickHandler} disabled={disabled} text="Conferma" />
-            </div>
+            <Input text={opinion} onChange={changeHandler} />
+            <Button onClick={clickHandler} disabled={disabled} text="Conferma" marginRight="mr-1" />
+            <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" color="bg-red-300" />
 
-            <ErrorSpan textColor={textColor} text={error} />
+          </div>
+
+          <ErrorSpan textColor={textColor} text={error} />
 
           {/* <div className="text-red-500 font-semibold h-3 mt-2 text-center">error</div> */}
         </div>
