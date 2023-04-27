@@ -1,92 +1,108 @@
 import { useState } from "react";
 import Button from "./Button";
-import ErrorSpan from "./ErrorSpan";
 import Input from "./Input";
+import { v4 as uuid } from "uuid";
 
+const ReviewCard = props => {
+  const { title, setReviews, review, setReview } = props;
 
-
-
-const ReviewCard = (props) => {
-  const { title } = props;
-  const [opinion, setOpinion] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const [error, setAlert] = useState();
+  const [error, setError] = useState("");
+  const [borderColor, setBorderColor] = useState("border-gray-100");
 
-  const errorColor = "border-red-500";
-  const defaulftColor = "border-gray-100";
-  const [borderColor, setBorderColor] = useState(defaulftColor)
+  const changeHandler = event => {
+    const userInput = event.target.value;
 
-  const [textColor, setTextColor] = useState("");
+    setError("");
+    setBorderColor("border-gray-100");
+    setReview(prevState => {
+      return {
+        ...prevState,
+        opinion: userInput
+      };
+    });
 
-  const [rating, setRating] = useState(0);
-
-
-  /**
-   * Riceviamo il cambiamento nell'input attraverso "event" del DOM
-   * e lo passiamo a useState per creare una variabile che contiene
-   * la modifica effettuata nell'input.
-   * @param {*} event evento del DOM
-   */
-  function changeHandler(event) {
-    const { value } = event.target;
-    setOpinion(value)
-
-    if (value.trim() !== "" && value.length > 5) {
-      setDisabled(false);
-
-    } else {
-      setBorderColor(defaulftColor);
-      setAlert("")
+    if (userInput.length === 0) {
       setDisabled(true);
-
-    }
-  }
-
-  function clickHandler() {
-    if (opinion.length < 8) {
-      setBorderColor(errorColor);
-      setTextColor("text-red-600");
-      setAlert("Devi inserire almeno 8 caratteri.");
-
     } else {
-      setBorderColor(defaulftColor);
-      setTextColor("text-green-700");
-      setAlert("Hai inserito: " + opinion);
-
+      setDisabled(false);
     }
+  };
 
-  }
-
-  function removeClickHandler() {
-    setOpinion("");
+  const clickHandler = () => {
+    if (review.opinion.length < 8 || review.rating === 0) {
+      setError("devi scrivere almeno 8 caratteri E  selezionare un voto");
+      setBorderColor("border-red-500");
+    } else {
+      setError("");
+      setBorderColor("border-gray-100");
+      if (review.id !== "") {
+        setReviews(prevState => {
+          const newReviews = prevState.map(element => {
+            if (element.id === review.id) {
+              return {
+                ...element,
+                opinion: review.opinion,
+                rating: review.rating
+              };
+            } else {
+              return element;
+            }
+          });
+          return newReviews;
+        });
+      } else {
+        setReviews(prevState => {
+          return [
+            ...prevState,
+            {
+              ...review,
+              id: uuid()
+            }
+          ];
+        });
+      }
+      setReview({
+        id: "",
+        opinion: "",
+        rating: 0
+      });
+      setDisabled(true);
+    }
+  };
+  const removeClickHandler = () => {
+    setReview(prevState => {
+      return {
+        ...prevState,
+        opinion: ""
+      };
+    });
     setDisabled(true);
-    setBorderColor(defaulftColor);
-    setTextColor();
-    setAlert("Testo cancellato...")
-
-  }
-
-  // const clickHandler = number => {
-  //   console.log(number);
-  // };
-
-  // const inputHandler = e => {
-  //   console.log(e.target.value);
-  // };
-
-  // const inputClickHandler = () => {
-  //   console.log("input button clicked");
-  // };
+  };
 
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const renderedRating = [...array].map((number, index) => {
+    const initialClassName =
+      "border-2 border-transparent mx-1 rounded-50 text-sm md:text-base w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-all ease-in duration-150 ";
+    const initialState = review.rating === 0 ? "bg-slate-300 hover:bg-dark-green" : "";
+    const ratingClassName = review.rating === number ? "bg-dark-green" : "bg-slate-100 hover:bg-dark-green";
+    const className = initialClassName + initialState + ratingClassName;
     return (
       <button
         key={index}
-        className="border-2 border-black-200 mx-1 rounded-50 text-sm md:text-base w-6 h-6 md:w-8 md:h-8 cursor-pointer transition-all ease-in duration-150 bg-slate-100 hover:bg-dark-green"
-        onClick={() => setRating(number)}
-        disabled={false}>
-        {index + 1}
+        className={className}
+        onClick={() => {
+          if(review.rating !== number) {
+            setDisabled(false);
+          }
+          setReview(prevState => {
+            return {
+              ...prevState,
+              rating: number
+            };
+          });
+        }}>
+        {number}
       </button>
     );
   });
@@ -98,16 +114,11 @@ const ReviewCard = (props) => {
           <h2 className="font-medium font-Itim text-3xl my-4 text-center">{title}</h2>
           <div className="flex justify-between my-4">{renderedRating}</div>
           <div className={`w-full flex justify-center items-center p-1 mt-4 rounded-md border-2 ${borderColor}`}>
-
-            <Input text={opinion} onChange={changeHandler} />
-            <Button onClick={clickHandler} disabled={disabled} text="Conferma" marginRight="mr-1" />
-            <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" color="bg-red-300" />
-
+            <Input text={review.opinion} onChange={changeHandler} />
+            <Button onClick={clickHandler} disabled={disabled} text="Conferma" marginRight="mr-2" />
+            <Button onClick={removeClickHandler} disabled={disabled} text="Elimina" hover="bg-red-500" />
           </div>
-
-          <ErrorSpan textColor={textColor} text={error} />
-
-          {/* <div className="text-red-500 font-semibold h-3 mt-2 text-center">error</div> */}
+          <div className="text-red-500 font-semibold h-3 mt-2 text-center">{error}</div>
         </div>
       </div>
     </div>
