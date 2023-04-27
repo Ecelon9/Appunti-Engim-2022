@@ -68,5 +68,16 @@
  * La prima cosa da fare, è creare la persistenza, ovvero la struttura del DB
  *      (best practice, dopo averla usata, salvarsi la query su un file txt)
  * 
+ * Quando si crea la connessione, vanno gestiti le eccezioni:
+ * per esempio: problemi di lettura/scrittura di apertura/chiusura della connessione stessa
+ * 
+ * abbiamo utilizzato tramite JDBC (Java DataBase Connectivity), mySql:
+ *  -try ->instauro la connessione con l'oggetto connection che si appoggia alla classe
+ *  -DriverManager, con il metodo statico getConnection(URL, USER, PSW)
+ *  -Eseguire la query(creo lo statement per il database "SELECT cosa FROM il database")
+ *  -gestisco un caso (per esempio db vuoto) lanciando una nuova eccezione
+ *  -catch ->in caso qualcosa vada male, blocco il programma, recupero l'eccezione e mostro il messaggio
+ * 
+ * 
  * 
 */
