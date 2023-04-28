@@ -1,0 +1,3 @@
+Unire dalla tabella relazionale i campi in comune:
+
+    -le primary key delle entità/relazioni nelle relazione foreign key
