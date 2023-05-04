@@ -33,43 +33,38 @@ public class FilmRepository {
 
     }
 
-    public static Film inserisciFilm(Film film) {
-        String sqlQuery = "INSERT INTO blockbuster (" +
-                "codice_film," +
-                "nome_film," +
-                "data_uscita)" +
-                "VALUES (" +
-                "film.getCodiceFilm()," +
-                "film.getNomeFilm()," +
-                "film.getDataUscita())";
-
+    public static void inserisciFilm(Film film) {
         try {
             Connection conn = DriverManager.getConnection(URLJDBC.URL, URLJDBC.USER, URLJDBC.PASSWORD);
-            Statement stmt = conn.createStatement();
-            int row = stmt.executeUpdate(sqlQuery);
+            PreparedStatement pstmt = conn.prepareStatement(
+                    "INSERT INTO film (codice_film, nome_film, data_uscita)" +
+                        "VALUES (?, ?, ?)"
+            );
+            pstmt.setString(1, film.getCodiceFilm());
+            pstmt.setString(2, film.getNomeFilm());
+            pstmt.setString(3, film.getDataUscita());
+            int row = pstmt.executeUpdate();
             conn.close();
-            return film;
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
 
         }
-        return null;
     }
 
-    public static String rimuoviFilm(String nome) {
+    public static void rimuoviFilm(String nome) {
+        System.out.println(nome);
         try {
             Connection conn = DriverManager.getConnection(URLJDBC.URL, URLJDBC.USER, URLJDBC.PASSWORD);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("DELETE " + nome + " FROM film WHERE nome_film = " + nome);
+            int row = stmt.executeUpdate("DELETE FROM film WHERE nome_film = " + nome);
+
             conn.close();
-            return nome;
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
 
         }
-        return null;
     }
 
 
