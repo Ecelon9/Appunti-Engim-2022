@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2023-05-02T10:03:08.356Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="mtZr8l2kXOkBaNzdjZMj" version="21.2.4" type="device">
+  <diagram name="Pagina-1" id="PrdkA0nln_55w2pfhQSS">
+    <mxGraphModel dx="500" dy="764" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="3ssdRUC9bCeRSOtnK29w-1" target="3ssdRUC9bCeRSOtnK29w-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-1" value="&lt;b&gt;Studenti&lt;br&gt;&lt;br&gt;matricola_Studente int NOT NULL PRIMARY KEY,&lt;br&gt;&lt;/b&gt;nome_studente varchar(20) NOT NULL,&lt;br&gt;cognome_studente varchar(20) NOT NULL,&lt;br&gt;recapito_studente varchar(15);" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="115" y="36" width="329" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-2" value="&lt;b&gt;Corsi&lt;br&gt;&lt;br&gt;id_Corso varchar(5) NOT NULL PRIMARY KEY,&lt;br&gt;&lt;/b&gt;materia varchar(10) NOT NULL,&lt;br&gt;minimo_studenti int(2) NOT NULL," style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="118.5" y="513" width="322" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3ssdRUC9bCeRSOtnK29w-3" target="3ssdRUC9bCeRSOtnK29w-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-3" value="&lt;b&gt;Frequenta&lt;br&gt;&lt;br&gt;matricola_Stud, id_Corso NOT NULL PRIMARY KEY,&lt;br&gt;&lt;/b&gt;foreign key matricolare_Stud references Studenti(matricola_Studente),&lt;br&gt;foreign key id_Corso references(id_Corso);" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="57.31" y="201" width="444.38" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-7" value="( N/N )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="276" y="160" width="53" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="3ssdRUC9bCeRSOtnK29w-8" value="( N/N )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="276" y="479" width="53" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2023-05-02T09:47:08.866Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="iEoIwdi2euRItbwjothc" version="21.2.4" type="device">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
+    <mxGraphModel dx="833" dy="1273" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EkcPfnTcNSqgk-NHQJOd-1" target="EkcPfnTcNSqgk-NHQJOd-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-1" value="&lt;b&gt;Clienti&lt;/b&gt;&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;id_Cliente int NOT NULL PRIMARY KEY,&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;/b&gt;nome_Cliente varchar(15) NOT NULL,&lt;br style=&quot;font-size: 18px;&quot;&gt;cognome_Cliente varchar(15) NOT NULL,&lt;br style=&quot;font-size: 18px;&quot;&gt;num_Cell_Cliente varchar (20) NOT NULL;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="272.62" y="63" width="433" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-2" value="&lt;b&gt;Noleggi&lt;br style=&quot;font-size: 18px;&quot;&gt;&lt;br style=&quot;font-size: 18px;&quot;&gt;id_Noleggio int NOT NULL PRIMARY KEY,&lt;/b&gt;&lt;br style=&quot;font-size: 18px;&quot;&gt;data_inizio_noleggio varchar(10) NOT NULL,&lt;br style=&quot;font-size: 18px;&quot;&gt;data_fine_noleggio varchar(10) NOT NULL,&lt;br style=&quot;font-size: 18px;&quot;&gt;rata_mensile_noleggio int NOT NULL;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="271.62" y="685" width="434" height="166" as="geometry" />
+        </mxCell>
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="EkcPfnTcNSqgk-NHQJOd-3" target="EkcPfnTcNSqgk-NHQJOd-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-3" value="&lt;b&gt;Noleggia&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;id_Cliente, id_Noleggio int NOT NULL PRIMARY KEY,&lt;/b&gt;&lt;br&gt;FOREIGN KEY id_Cliente references Clienti(id_Cliente),&lt;br&gt;FOREIGN KEY id_Noleggio references Noleggi(id_Noleggio);" style="rhombus;whiteSpace=wrap;html=1;fontSize=18;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="141.99" y="275" width="693.25" height="361" as="geometry" />
+        </mxCell>
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-7" value="( 1/1 )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=19;" parent="1" vertex="1">
+          <mxGeometry x="489" y="242" width="68" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="EkcPfnTcNSqgk-NHQJOd-8" value="( 1/1 )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" parent="1" vertex="1">
+          <mxGeometry x="485" y="649" width="65" height="34" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

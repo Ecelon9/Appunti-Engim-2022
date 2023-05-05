@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2023-05-02T09:45:58.586Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="HMRcZSYKILTkBitSpSX8" version="21.2.4" type="device">
+  <diagram name="Pagina-1" id="w2Qp6LNRffWUyoU1vWf6">
+    <mxGraphModel dx="500" dy="764" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="EmSPzNQ-jMuoaaCh_SOb-1" target="EmSPzNQ-jMuoaaCh_SOb-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-1" value="&lt;b&gt;Libri&lt;br&gt;&lt;br&gt;id_Libro int NOT NULL PRIMARY KEY,&lt;br&gt;&lt;/b&gt;titolo_libro varchar(20) NOT NULL,&lt;br&gt;editore_libro varchar(20) NOT NULL,&lt;br&gt;genere varchar(15);" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="129.67000000000002" y="28" width="261" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-2" value="&lt;b&gt;AutorI&lt;br&gt;&lt;br&gt;id_Autore int NOT NULL PRIMARY KEY,&lt;/b&gt;&lt;br&gt;nome_autore varchar(10) NOT NULL,&lt;br&gt;cognome_autore varchar(10) NOT NULL," style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="116.67" y="456" width="287" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="EmSPzNQ-jMuoaaCh_SOb-3" target="EmSPzNQ-jMuoaaCh_SOb-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-3" value="&lt;b&gt;Ha scritto&lt;br&gt;&lt;br&gt;titolo_libro varchar(20) NOT NULL PRIMARY KEY,&lt;br&gt;&lt;/b&gt;nome_autore varchar(10) NOT NULL,&lt;br&gt;foreign key titolo_libro references Libri(titolo_libro),&lt;br&gt;foreign key nome_autore references Autori(nome_autore);" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="24.000000000000004" y="175" width="472.34" height="252" as="geometry" />
+        </mxCell>
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-6" value="( 1/N )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="262.67" y="135" width="51" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="EmSPzNQ-jMuoaaCh_SOb-7" value="( N/1 )" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="262.67" y="430" width="51" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
